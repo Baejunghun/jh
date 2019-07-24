@@ -1,0 +1,32 @@
+커맨드창에서다음의명령어실행geth --networkid 111 --datadir eomth --rpc --rpcport 8545 --rpccorsdomain "*" --rpcapi "admin, db, eth, debug, miner, net, shh, txpool, personal, web3" console
+
+geth attach - geth에서 마이닝을 실행하면 계속해서 블록이 생성되며 gas가 생성됨. 마이닝을 하면 복잡하고 귀찮아지기 때문에 geth attach로 창을 따로 띄워 만
+
+
+"EthereumWallet.exe" --rpc//./pipe/geth.ipc
+
+personal.newAccount("password") - 계좌 생성 명령어
+eth.getBalance(eth.accounts[0]) - 계좌 잔고 확인
+miner.setEtherbase(eth.accounts[1]) - 마이닝 주체 변경
+
+personal.unlocakAccount(eth.accounts[0], "password", 숫자) - 계정의 권한 해제, 숫자는 시간을 의미함. 그 시간동안 설정한 계좌의 권한 해제
+
+1. Geth 설치하고 블록체인 초기화
+2. Geth 실행하고 계좌생성(2개 이상)
+3. 마이너 주체를 변경해가면서 마이닝 해보기
+4. 마이닝 결과를 getBalance 명령어를 이용해 확인하기
+
+remix를 이용해 컨트랙트를 배포할 때 주의할 점
+- solidity code compile 버전은 코드의 문법에 따라감
+- 
+
+2.solidity 코드 작성, 수정 및 contract컴파일(버전에 맞도록)
+
+2. 적절한 환경 web3 provider)를 선택하고, contract 배포
+- contract를 배포하기 위해 계좌 권한 해제 
+- contract를 배포하는 transaction이 제출되면, geth에서 submitted contract creation 이라는 메세지 확인
+Creation이라는 메세지 확인
+- 메세지 확인 후 마이닝을 하면, contract 배포가 완료됨
+
+3. 컨트랙트 배포 완료 후 dapp과 연결
+- contract 주소와 ABI
